@@ -1,0 +1,11 @@
+#!/bin/bash
+# Скрипт для создания отсортированного файла, исключая общие слова
+
+# Находим уникальные слова из обоих файлов, исключая общие
+comm -23 <(sort basa.txt | uniq) <(sort fileText.txt | uniq) > result.txt
+comm -13 <(sort basa.txt | uniq) <(sort fileText.txt | uniq) >> result.txt
+
+# Сортируем результат и сохраняем в новый файл
+sort result.txt -o sorted_result.txt
+
+echo "Отсортированный файл без общих слов создан: sorted_result.txt"

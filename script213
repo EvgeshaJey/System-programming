@@ -1,0 +1,15 @@
+#!/bin/bash
+# Скрипт для удаления всех символов, кроме буквенных
+
+input_file="year.txt"
+output_file="output.txt"
+
+# Проходим по каждой строке файла
+while IFS= read -r line; do
+    # Убираем все символы, кроме букв (A-Z, a-z, и пробелов)
+    cleaned_line=$(echo "$line" | sed 's/[^a-zA-Zа-яА-Я ]//g')
+    # Записываем результат в новый файл
+    echo "$cleaned_line" >> "$output_file"
+done < "$input_file"
+
+echo "Файл очищен и записан в $output_file."

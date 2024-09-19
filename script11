@@ -1,0 +1,13 @@
+#!/bin/bash
+
+source_file="source.txt"
+destination_file="destination.txt"
+
+# Проверяем, существуют ли оба файла
+if [[ -f "$source_file" && -f "$destination_file" ]]; then
+    # Копируем содержимое source.txt в destination.txt
+    cat "$source_file" > "$destination_file"
+    echo "Содержимое файла $source_file записано в файл $destination_file."
+else
+    echo "Один из файлов не существует."
+fi
