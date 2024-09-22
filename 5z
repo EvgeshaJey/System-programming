@@ -1,0 +1,33 @@
+#!/bin/bash
+
+
+while true; do
+    CURRENCY=$(dialog --menu "Выберите валюту:" 15 50 5 \
+    "USD" "Доллар США" \
+    "EUR" "Евро" \
+    "JPY" "Японская иена" \
+    "GBP" "Фунт стерлингов" \
+    "exit" "Выход" 3>&1 1>&2 2>&3)
+
+    if [ "$CURRENCY" == "exit" ]; then
+        dialog --msgbox "Выход из программы." 7 30
+        break
+    fi
+
+    case $CURRENCY in
+        "USD")
+            RATE="75.00"
+            ;;
+        "EUR")
+            RATE="85.00"
+            ;;
+        "JPY")
+            RATE="0.70"
+            ;;
+        "GBP")
+            RATE="100.00"
+            ;;
+    esac
+
+    dialog --msgbox "Котировка для $CURRENCY: $RATE" 7 60
+done
