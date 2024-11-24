@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# Ищем файлы, начинающиеся на "script", и записываем их в list.txt
+find . -type f -name "script*" > list.txt
+
+echo "Имена всех файлов, начинающихся на 'script', записаны в list.txt."
